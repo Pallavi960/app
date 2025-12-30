@@ -48,7 +48,7 @@ const Register_user = () => {
         <input
           type="password"
           className="bg-amber-50"
-          placeholder="Enter password"
+          placeholder="Enter password please!"
           onChange={(e) => setPass(e.target.value)}
         />
 
