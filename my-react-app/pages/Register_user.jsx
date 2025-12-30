@@ -40,14 +40,14 @@ const Register_user = () => {
 
         <input
           type="text"
-          className="bg-amber-50"
-          placeholder="Enter email"
+          className="bg-amber-600"
+          placeholder="Enter email please!"
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
           type="password"
-          className="bg-amber-50"
+          className='bg-blue-300'
           placeholder="Enter password"
           onChange={(e) => setPass(e.target.value)}
         />
