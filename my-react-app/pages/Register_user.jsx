@@ -12,12 +12,13 @@ const Register_user = () => {
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/user/register`, {
-          method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-  body: JSON.stringify(userData)
-})
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ name, email, pass })
+});
+
 
 
       const data = await res.json();

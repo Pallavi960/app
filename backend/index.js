@@ -12,10 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
   origin: [
-    "http://localhost:5173",
-    "https://app-sooty-rho-69.vercel.app"
+    "http://localhost:5173",            // for local dev
+    "https://app-sooty-rho-69.vercel.app" // your deployed frontend
   ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET","POST","PUT","DELETE"],
   credentials: true
 }));
 
