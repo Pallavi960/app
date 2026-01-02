@@ -1,37 +1,26 @@
-const express=require("express");
-const {connectMongoDB}=require("./connection");
+const express = require("express");
+const { connectMongoDB } = require("./connection");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const userRoute=require("./routes/user");
+const userRoute = require("./routes/user");
 
-
-const  app=express();
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-    origin: "http://localhost:5173", // ⚠️ change to your frontend URL
-    credentials: true
+  origin: true,
+  credentials: true
 }));
 
 app.use(cookieParser());
 
+app.use("/user", userRoute);
 
-app.use("/user",userRoute);
+connectMongoDB();
 
-
-
-
-
-connectMongoDB("mongodb://localhost:27017/project").then(() => {
-    console.log("connected");
-}).catch((err) => {
-    console.log(err);
+const PORT = process.env.PORT || 7000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-let port=7000;
-app.listen(port,()=>
-{
-    console.log(`server is running on the ${port}`);
-})
