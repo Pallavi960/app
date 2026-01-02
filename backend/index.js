@@ -13,10 +13,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://app-1fjtwipi5-pallavis-projects-8219c4c1.vercel.app"
+    "https://app-sooty-rho-69.vercel.app"
   ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+
+
 
 app.use(cookieParser());
 app.use("/user", userRoute);
