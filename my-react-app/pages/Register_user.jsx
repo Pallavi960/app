@@ -9,54 +9,50 @@ const Register_user = () => {
     e.preventDefault();
 
     const userData = { name, email, pass };
-    console.log(userData);
 
     try {
-      const res = await fetch("http://localhost:7000/user/register", {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/register`,
+        {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
 
       const data = await res.json();
-      console.log("Response from backend:", data);
       alert(data.message);
 
     } catch (error) {
-      console.log(error);
+      console.error(error);
       alert("Something went wrong!");
     }
   }
 
   return (
-    <div>
-      <form onSubmit={collectData} className="bg-amber-500">
-        <input
-          type="text"
-          className="bg-amber-50"
-          placeholder="Enter name"
-          onChange={(e) => setName(e.target.value)}
-        />
+    <form onSubmit={collectData} className="bg-amber-500">
+      <input
+        type="text"
+        placeholder="Enter name"
+        onChange={(e) => setName(e.target.value)}
+      />
 
-        <input
-          type="text"
-          className="bg-amber-600"
-          placeholder="Enter email please!"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <input
+        type="email"
+        placeholder="Enter email"
+        onChange={(e) => setEmail(e.target.value)}
+      />
 
-        <input
-          type="password"
-          className="bg-amber-50"
-          placeholder="Enter password"
-          onChange={(e) => setPass(e.target.value)}
-        />
+      <input
+        type="password"
+        placeholder="Enter password"
+        onChange={(e) => setPass(e.target.value)}
+      />
 
-        <button type="submit" className="bg-blue-700">
-          Submit
-        </button>
-      </form>
-    </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
