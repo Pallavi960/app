@@ -11,7 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://app-1fjtwipi5-pallavis-projects-8219c4c1.vercel.app"
+  ],
   credentials: true
 }));
 
