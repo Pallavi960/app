@@ -32,22 +32,34 @@ const Register_user = () => {
   }
 
   return (
-    <form onSubmit={collectData} className="bg-amber-500">
+    <form onSubmit={collectData} className="bg-amber-500 p-4 space-y-2">
+      <label htmlFor="name">Name:</label>
       <input
         type="text"
+        id="name"
+        name="name"
         placeholder="Enter name"
+        autoComplete="name"
         onChange={(e) => setName(e.target.value)}
       />
 
+      <label htmlFor="email">Email:</label>
       <input
         type="email"
+        id="email"
+        name="email"
         placeholder="Enter email"
+        autoComplete="email"
         onChange={(e) => setEmail(e.target.value)}
       />
 
+      <label htmlFor="password">Password:</label>
       <input
         type="password"
+        id="password"
+        name="password"
         placeholder="Enter password"
+        autoComplete="new-password"
         onChange={(e) => setPass(e.target.value)}
       />
 
