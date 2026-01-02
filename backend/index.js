@@ -22,7 +22,7 @@ app.use(cors({
 
 
 app.use(cookieParser());
-app.use("/", userRoute);
+app.use("/user", userRoute);
 
 // connect to MongoDB Atlas
 connectMongoDB();
